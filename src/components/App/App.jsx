@@ -1,21 +1,37 @@
 import React from "react";
+import Checkbox from "../../shared/Checkbox";
 import AppContainer from "../AppContainer";
 import AppHeader from "../AppHeader";
 import {Wrapper, Container} from './App.styles'
 
 function App (){
+    const [lettuce, setlettuce] = React.useState(true)
+    const [rice, setrice] = React.useState(false)
     return <Wrapper>
         <Container>
             <AppHeader/>
             <AppContainer
-                left={<div style={{backgroundColor: "blue"}}>
-                    produtos disponiveis
+                left={<div >
+                    produtos disponiveis:
+                    < Checkbox 
+                    value = {lettuce}
+                    title="Alface"
+                    onClick={() => setlettuce(!lettuce)}
+                    
+                    />
+
+                    < Checkbox 
+                    value = {rice}
+                    title="Arroz"
+                    onClick={() => setrice(!rice)}
+                    
+                    />
                     </div>}
-                    middle = {<div style={{backgroundColor: "blue"}}>
+                    middle = {<div >
                         sua lista
                         </div>}
 
-                    right = { <div style={{backgroundColor: "blue"}}>
+                    right = { <div >
                              estatisticas
                     </div>
                     }
